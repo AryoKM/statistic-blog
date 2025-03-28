@@ -117,3 +117,18 @@ async function loadHomepage() {
 }
 
 renderPostTabs();
+
+// Scroll to Top Button
+const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+// Smooth scroll to the top of the document
+scrollToTopBtn.addEventListener('click', () => {
+  const scrollToTop = () => {
+    const currentPosition = document.documentElement.scrollTop || document.body.scrollTop;
+    if (currentPosition > 0) {
+      window.requestAnimationFrame(scrollToTop); // Use requestAnimationFrame for smooth scrolling
+      window.scrollTo(0, currentPosition - currentPosition / 15); // Adjust the divisor for speed
+    }
+  };
+  scrollToTop();
+});
